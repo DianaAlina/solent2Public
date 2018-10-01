@@ -1,0 +1,5 @@
+org\DianaAlina\com504\ood\App.class
+org\DianaAlina\com504\ood\AppConfig.class
+org\DianaAlina\com504\ood\AppConfig$JerseyConfig.class
+org\DianaAlina\com504\ood\HelloEndpoint.class
+org\DianaAlina\com504\ood\HelloEndpoint$Result.class
