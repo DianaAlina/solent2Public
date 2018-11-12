@@ -1,8 +1,41 @@
-/target/
-/apache-maven-3.5.4-bin.zip
+# specific for this file
 /maven/
-/.classpath
-/.project
-/.settings/
-/target/
-/nbproject/
+
+ 
+# Maven
+log/
+target/
+
+# Eclipse
+.classpath
+.project
+.settings/
+ 
+# Intellij
+.idea/
+*.iml
+*.iws
+ 
+# Mac
+.DS_Store
+
+
+# NetBeans specific #
+nbproject
+build/
+nbbuild/
+dist/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+
+# Class Files #
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.zip
+
+/week8/bankcard-parent/card-web/accounts-data.xml
