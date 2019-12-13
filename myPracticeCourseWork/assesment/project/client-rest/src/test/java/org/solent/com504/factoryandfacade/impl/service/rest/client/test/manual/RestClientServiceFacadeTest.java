@@ -47,4 +47,15 @@ public class RestClientServiceFacadeTest {
         LOG.debug("end of testGetHeartbeat()");
     }
 
+    @Test
+    public void testArrivedOnSite() {
+        LOG.debug("start of testArrivedOnSite()");
+        String staffId = "fred";
+        String location = "home";
+        boolean ok = serviceFacade.arrivedOnSite(staffId, location);
+        assertTrue(ok);
+
+        LOG.debug("end of testArrivedOnSite()");
+    }
+
 }

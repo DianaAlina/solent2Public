@@ -49,12 +49,34 @@ public class ServiceRestClientImpl implements ServiceFacade {
 
         ReplyMessage replyMessage = response.readEntity(ReplyMessage.class);
         LOG.debug("Response status=" + response.getStatus() + " ReplyMessage: " + replyMessage);
-        
-        if(replyMessage==null) return null;
-        
+
+        if (replyMessage == null) {
+            return null;
+        }
+
         return replyMessage.getDebugMessage();
 
     }
 
+    @Override
+    public boolean arrivedOnSite(String staffId, String location) {
+        LOG.debug("arrivedOnSite() Called staffId=" + staffId + " location=" + location);
+
+        Client client = ClientBuilder.newClient(new ClientConfig().register(LoggingFilter.class));
+        WebTarget webTarget = client.target(baseUrl).path("arrivedOnSite").queryParam("staffId", staffId).queryParam("location", location);
+
+        Invocation.Builder invocationBuilder = webTarget.request(MediaType.APPLICATION_XML);
+        Response response = invocationBuilder.get();
+
+        ReplyMessage replyMessage = response.readEntity(ReplyMessage.class);
+        LOG.debug("Response status=" + response.getStatus() + " ReplyMessage: " + replyMessage);
+
+        if (response.getStatus() != Response.Status.OK.getStatusCode()) {
+            return false;
+        } else {
+            return true;
+        }
+
+    }
 
 }

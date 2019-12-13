@@ -9,6 +9,7 @@
         <Field name="secondName" type="String" visibility="private"/>
         <Field name="role" type="Role" visibility="private"/>
         <Field name="address" type="String" visibility="private"/>
+        <Field name="timeOnSite" type="Date" visibility="private"/>
       </Fields>
       <Constructors/>
       <Methods/>
@@ -19,10 +20,8 @@
         <Field name="personA" type="Person" visibility="private"/>
         <Field name="personB" type="Person" visibility="private"/>
         <Field name="id" type="Long" visibility="private"/>
-        <Field name="hr" type="Integer" visibility="private"/>
-        <Field name="mth" type="Integer" visibility="private"/>
-        <Field name="yr" type="Integer" visibility="private"/>
         <Field name="durationMinutes" type="Integer" visibility="private"/>
+        <Field name="startTime" type="Date" visibility="private"/>
       </Fields>
       <Constructors/>
       <Methods/>
@@ -128,7 +127,7 @@
     <Interface name="RestClient" package="org.solent.com504.project.model.rest" visibility="public" xPosition="-8.0" yPosition="332.0">
       <Methods/>
     </Interface>
-    <Enum name="Role" package="org.solent.com504.project.model.dto" visibility="public" xPosition="365.0" yPosition="928.0">
+    <Enum name="Role" package="org.solent.com504.project.model.dto" visibility="public" xPosition="375.0" yPosition="928.0">
       <Literals>
         <Literal name="PATIENT"/>
         <Literal name="DENTIST"/>
@@ -136,23 +135,23 @@
     </Enum>
   </ClassDiagramComponents>
   <ClassDiagramRelations>
-    <UseRelation name="createsPersonDAO" source="org.solent.com504.project.model.dao.DAOFactory" target="org.solent.com504.project.model.dao.PersonDAO" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <UseRelation name="restInteraceUsesReplyMessage" source="org.solent.com504.project.model.rest.ServiceFacadeRest" target="org.solent.com504.project.model.dto.ReplyMessage" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <UseRelation name="usesWebobjectFactory" source="org.solent.com504.project.model.rest.ServiceFacadeRest" target="org.solent.com504.project.model.web.WebObjectFactory" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <UseRelation name="usesDAOFactory" source="org.solent.com504.project.model.service.ServiceObjectFactory" target="org.solent.com504.project.model.dao.DAOFactory" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <UseRelation name="usesServiceFacade" source="org.solent.com504.project.model.web.JSP_Pages_do_not_generate" target="org.solent.com504.project.model.service.ServiceFacade" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <UseRelation name="usesAppointmentDAO" source="org.solent.com504.project.model.service.ServiceFacade" target="org.solent.com504.project.model.dao.AppointmentDAO" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <UseRelation name="usesAppointment" source="org.solent.com504.project.model.dao.AppointmentDAO" target="org.solent.com504.project.model.dto.Appointment" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <UseRelation name="usesWebObjectFactory" source="org.solent.com504.project.model.web.JSP_Pages_do_not_generate" target="org.solent.com504.project.model.web.WebObjectFactory" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <UseRelation name="createsServiceFacade" source="org.solent.com504.project.model.service.ServiceObjectFactory" target="org.solent.com504.project.model.service.ServiceFacade" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <UseRelation name="usesServiceObjectFactory" source="org.solent.com504.project.model.web.WebObjectFactory" target="org.solent.com504.project.model.service.ServiceObjectFactory" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <UseRelation name="usesPersonDAO" source="org.solent.com504.project.model.service.ServiceFacade" target="org.solent.com504.project.model.dao.PersonDAO" sourceCardinality="1..1" targetCardinality="1..1"/>
     <UseRelation name="createsAppointmentDAO" source="org.solent.com504.project.model.dao.DAOFactory" target="org.solent.com504.project.model.dao.AppointmentDAO" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <UseRelation name="usesPerson" source="org.solent.com504.project.model.dao.PersonDAO" target="org.solent.com504.project.model.dto.Person" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <UseRelation name="uses" source="org.solent.com504.project.model.rest.RestClient" target="org.solent.com504.project.model.rest.ServiceFacadeRest" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <HasRelation name="appointmentHasPersonA" source="org.solent.com504.project.model.dto.Appointment" target="org.solent.com504.project.model.dto.Person" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
-    <HasRelation name="personHasRole" source="org.solent.com504.project.model.dto.Person" target="org.solent.com504.project.model.dto.Role" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <UseRelation name="usesAppointmentDAO" source="org.solent.com504.project.model.service.ServiceFacade" target="org.solent.com504.project.model.dao.AppointmentDAO" sourceCardinality="1..1" targetCardinality="1..1"/>
     <HasRelation name="appointmentHasPersonB" source="org.solent.com504.project.model.dto.Appointment" target="org.solent.com504.project.model.dto.Person" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <UseRelation name="restInteraceUsesReplyMessage" source="org.solent.com504.project.model.rest.ServiceFacadeRest" target="org.solent.com504.project.model.dto.ReplyMessage" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="appointmentHasPersonA" source="org.solent.com504.project.model.dto.Appointment" target="org.solent.com504.project.model.dto.Person" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <UseRelation name="createsServiceFacade" source="org.solent.com504.project.model.service.ServiceObjectFactory" target="org.solent.com504.project.model.service.ServiceFacade" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="usesWebobjectFactory" source="org.solent.com504.project.model.rest.ServiceFacadeRest" target="org.solent.com504.project.model.web.WebObjectFactory" sourceCardinality="1..1" targetCardinality="1..1"/>
     <UseRelation name="usesServiceFacade" source="org.solent.com504.project.model.rest.ServiceFacadeRest" target="org.solent.com504.project.model.service.ServiceFacade" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="createsPersonDAO" source="org.solent.com504.project.model.dao.DAOFactory" target="org.solent.com504.project.model.dao.PersonDAO" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="usesPerson" source="org.solent.com504.project.model.dao.PersonDAO" target="org.solent.com504.project.model.dto.Person" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="usesServiceFacade" source="org.solent.com504.project.model.web.JSP_Pages_do_not_generate" target="org.solent.com504.project.model.service.ServiceFacade" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="usesWebObjectFactory" source="org.solent.com504.project.model.web.JSP_Pages_do_not_generate" target="org.solent.com504.project.model.web.WebObjectFactory" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="usesPersonDAO" source="org.solent.com504.project.model.service.ServiceFacade" target="org.solent.com504.project.model.dao.PersonDAO" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="usesAppointment" source="org.solent.com504.project.model.dao.AppointmentDAO" target="org.solent.com504.project.model.dto.Appointment" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="usesDAOFactory" source="org.solent.com504.project.model.service.ServiceObjectFactory" target="org.solent.com504.project.model.dao.DAOFactory" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="personHasRole" source="org.solent.com504.project.model.dto.Person" target="org.solent.com504.project.model.dto.Role" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <UseRelation name="usesServiceObjectFactory" source="org.solent.com504.project.model.web.WebObjectFactory" target="org.solent.com504.project.model.service.ServiceObjectFactory" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="uses" source="org.solent.com504.project.model.rest.RestClient" target="org.solent.com504.project.model.rest.ServiceFacadeRest" sourceCardinality="1..1" targetCardinality="1..1"/>
   </ClassDiagramRelations>
 </ClassDiagram>

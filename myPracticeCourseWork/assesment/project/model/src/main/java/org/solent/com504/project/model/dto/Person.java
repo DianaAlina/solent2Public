@@ -19,6 +19,10 @@ public class Person {
     private String firstName;
 
     private String secondName;
+    
+    private String staffId;
+
+  
 
     private Role role;
 
@@ -66,10 +70,20 @@ public class Person {
         this.address = address;
     }
 
+      public String getStaffId() {
+        return staffId;
+    }
+
+    public void setStaffId(String staffId) {
+        this.staffId = staffId;
+    }
+
     @Override
     public String toString() {
-        return "Person{" + "id=" + id + ", firstName=" + firstName + ", secondName=" + secondName + ", role=" + role + ", address=" + address + '}';
+        return "Person{" + "id=" + id + ", firstName=" + firstName + ", secondName=" + secondName + ", staffId=" + staffId + ", role=" + role + ", address=" + address + '}';
     }
+    
+  
     
     
     

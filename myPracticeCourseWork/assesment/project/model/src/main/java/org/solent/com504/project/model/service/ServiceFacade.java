@@ -4,4 +4,6 @@ public interface ServiceFacade {
     
     public String getHeartbeat();
     
+    public boolean arrivedOnSite(String staffId, String location);
+    
 }
