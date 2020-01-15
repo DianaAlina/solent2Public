@@ -22,8 +22,6 @@ public class Person {
     
     private String staffId;
 
-  
-
     private Role role;
 
     private String address;

@@ -6,16 +6,38 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>Example JSPs index.html page</title>
+        <title>Operations Centre Service</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <h1>Appointment Service JSP Pages</h1>
-        <div>
-            <img src="../projectfacadeweb/images/Village-Farm.svg" alt="Village Farm Creative Commons https://publicdomainvectors.org" style="width:200px;height:300px;">
-        </div>
-
+        <h1>Operations Centre Service</h1><br>
+        <input type="text" id="staff" placeholder="Please type in staff ID"/><p>Make sure you insert the staff Id in the above field before updating worker status</p>
+        <script lang="JavaScript">
+            function passStaffId(){
+                var staffID = document.getElementById("staff").value;
+                document.getElementById("staff_ID").setAttribute("value", staffID);
+        }
+        </script>
+        <form method="post" id="formStart" action="../projectfacadeweb/testHeartbeat.jsp" >
+            <br>
+            <input type="submit" onclick="passStaffId()" id="start" value="Start working with client"/>
+            <input type="hidden" id="staff_ID" value=""/>
+        </form><br>
+        <form method="post" id="formOk" action="../projectfacadeweb/testHeartbeat.jsp">
+            <input type="submit" onclick="passStaffId()" id="ok" value="I'm OK"/>
+            <input type="hidden" id="staff_ID" value=""/>
+        </form><br>
+        <form method="post" id="formLeave" action="../projectfacadeweb/testHeartbeat.jsp">
+            <input type="submit" onclick="passStaffId()" id="leave" value="I'm leaving client home"/>
+            <input type="hidden" id="staff_ID" value=""/>
+        </form><br>
+        
+        
+        <h3><a href="../projectfacadeweb/listOfPeople.jsp">List of people</a></h3>
+        <h3><a href="../projectfacadeweb/listOfAppointments.jsp">List of appointments</a></h3>
+        
+        
         <h2>Simple Farm Example</h2>
         <!-- http://localhost:8084/projectfacadeweb/testHeartbeat.jsp -->
         <p> click on <a href="../projectfacadeweb/testHeartbeat.jsp">testHeartbeat.jsp</a> to open application
