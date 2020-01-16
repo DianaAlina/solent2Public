@@ -13,15 +13,32 @@ and open the template in the editor.
     <body>
         <h1>Remote Worker Client </h1><br>
         
-        
-        <button id="start">Start working with client</button><br>
-        <button id="ok">I'm OK</button><br>
-        <button id="leave">I'm leaving client home</button><br>
-
-        <h2>Simple Farm Client Example</h2>
-        <!-- http://localhost:8084/projectfacadeweb-client/testClientHeartbeat.jsp -->
-        <p> click on <a href="../projectfacadeweb-client/testClientHeartbeat.jsp">testClientHeartbeat.jsp</a> to open client application
-        </p>
+        <input type="text" id="staff" placeholder="Please type in staff ID"/>
+        <input type="text" id="location" placeholder="Please type in location"/><p>Make sure you insert the staff Id & location in the above field before updating worker status</p>
+        <script lang="JavaScript">
+            function passStaffId(){
+                var staffID = document.getElementById("staff").value;
+                document.getElementById("staff_ID").setAttribute("value", staffID);
+                var location = document.getElementById("location").value;
+                document.getElementById("staff_loc").setAttribute("value", location);
+        }
+        </script>  
+        <form method="post" id="formStart" action="../projectfacadeweb/arrivedOnSite.jsp" >
+            <br>
+            <input type="submit" onclick="passStaffId()" id="start" value="Start working with client"/>
+            <input type="hidden" id="staff_ID" value=""/>
+            <input type="hidden" id="staff_loc" value=""/>
+        </form><br>
+        <form method="post" id="formOk" action="../projectfacadeweb/testHeartbeat.jsp">
+            <input type="submit" onclick="passStaffId()" id="ok" value="I'm OK"/>
+            <input type="hidden" id="staff_ID" value=""/>
+            <input type="hidden" id="staff_loc" value=""/>
+        </form><br>
+        <form method="post" id="formLeave" action="../projectfacadeweb/testHeartbeat.jsp">
+            <input type="submit" onclick="passStaffId()" id="leave" value="I'm leaving client home"/>
+            <input type="hidden" id="staff_ID" value=""/>
+            <input type="hidden" id="staff_loc" value=""/>
+        </form><br>
 
 
 
