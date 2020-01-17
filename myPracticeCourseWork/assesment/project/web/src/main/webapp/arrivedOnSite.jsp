@@ -40,17 +40,15 @@
 
 %>
 
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>ArrivedOnSite JSP Server Page</title>
+        <title>JSP Page</title>
     </head>
     <body>
-        <!-- works with http://localhost:8080/basicfacadeweb/testHeartbeat.jsp -->
-        <H1>ArrivedOnSite JSP Server Page</H1>
-        <!-- print error message if there is one -->
-        <div style="color:red;"><%=errorMessage%></div>
-        <div style="color:green;"><%=message%></div>
-
+        <h1>Status changed to OnSite. Timer started</h1>
     </body>
 </html>
+

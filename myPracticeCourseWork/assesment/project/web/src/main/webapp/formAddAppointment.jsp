@@ -59,7 +59,11 @@
         <div style="color:green;"><%=message%></div>
         <br><br>
         <form>
-            <input type="text" placeholder=""/>
+            <input type="text" placeholder="Description"/><br>
+            <input type="text" placeholder="Person A"/><br>
+            <input type="text" placeholder="Person B"/><br>
+            <input type="text" placeholder="ID"/><br>
+            <input type="Submit" value="Add"/>
         </form>
         
 
